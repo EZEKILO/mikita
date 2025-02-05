@@ -11,7 +11,7 @@ body {
 }
 .bloque {
     background-color: rgb(255, 204, 229);
-    width: min(60vmin, 400px);
+    width: min(60vmin, 500px);
     height: min(180vmin, 600px);
     text-align: center;
     display: flex;
