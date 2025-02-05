@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Aceptas? </title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="bloque">
+            <div class="text">
+                <div class="corazon"></div>
+                <div>
+                    <p> Mikita, Miku, Mi Amor, Mi Vida, Mi Corazon, Queres Ser Mi Novia? :3</p>
+                </div>
+                <a href="index2.html">
+                    <div class="op1">
+                        <button> SIII, TE AMO </button>
+                    </div>
+                </a>
+            </div>
+            <div class="opciones">
+                
+                <button id="op2">no</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const button = document.getElementById('op2');
+        const opciones = document.querySelector('.opciones');
+
+        button.addEventListener('click', () => {
+
+            button.style.position = 'absolute';
+            button.style.transition = 'left 0.5s, top 0.5s';
+            
+            const opcionesWidth = opciones.clientWidth;
+            const opcionesHeight = opciones.clientHeight;
+
+            const buttonWidth = button.offsetWidth;
+            const buttonHeight = button.offsetHeight;
+
+            const maxX = opcionesWidth - buttonWidth;
+            const maxY = opcionesHeight - buttonHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
