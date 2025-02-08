@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;600&family=Lexend+Deca:wght@100;300;500;700&family=Monda:wght@400;700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <title> Aceptas? </title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="box1">
+            <p> Micaela, Mikita, Miku, ¿aceptarías ser mi novia? 💖</p>
+        </div>
+        <div class="box2">
+            <a href="index2.html">
+                <button id="aceptar">Aceptar</button>
+            </a>
+            <button id="op2">No.</button>
+        </div>
+    </div>
+
+    <script>
+        const buttonNo = document.getElementById('op2');
+        const aceptarButton = document.getElementById('aceptar');
+        const contenedor = document.querySelector('body');
+
+        buttonNo.addEventListener('click', () => {
+            buttonNo.style.position = 'absolute';
+
+            const contenedorWidth = contenedor.clientWidth;
+            const contenedorHeight = contenedor.clientHeight;
+
+            const buttonWidth = buttonNo.offsetWidth;
+            const buttonHeight = buttonNo.offsetHeight;
+
+            const maxX = contenedorWidth - buttonWidth;
+            const maxY = contenedorHeight - buttonHeight;
+
+            const randomX = Math.max(0, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+
+            buttonNo.style.left = `${randomX}px`;
+            buttonNo.style.top = `${randomY}px`;
+
+            let newWidth = aceptarButton.offsetWidth * 1.1;
+            let newHeight = aceptarButton.offsetHeight * 1.1;
+            let newFontSize = parseFloat(window.getComputedStyle(aceptarButton).fontSize) * 1.1;
+
+            if (newWidth < contenedorWidth && newHeight < contenedorHeight) {
+                aceptarButton.style.width = `${newWidth}px`;
+                aceptarButton.style.height = `${newHeight}px`;
+                aceptarButton.style.fontSize = `${newFontSize}px`;
+            } else {
+                aceptarButton.style.width = "100%";
+                aceptarButton.style.height = "100%";
+                aceptarButton.style.fontSize = "calc(1rem + 2vw)";
+            }
+        });
+    </script>
+</body>
+</html>
